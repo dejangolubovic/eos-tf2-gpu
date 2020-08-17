@@ -3,11 +3,11 @@ FROM gcr.io/kubeflow-images-public/tensorflow-2.1.0-notebook-gpu:1.0.0
 USER root
 
 ENV NB_PREFIX /
-ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get -qq update && \
-    apt-get install -y --no-install-recommends apt-utils && \
-    apt-get -yqq install krb5-user libpam-krb5 && \
+RUN apt-get -qq update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils
+
+RUN apt-get -yqq install krb5-user libpam-krb5 && \
     apt-get -yqq clean && \
     mv /etc/krb5.conf /etc/krb5-backup.conf && \
     mkdir /home/jovyan
