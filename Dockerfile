@@ -9,8 +9,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ap
 
 RUN apt-get -yqq install krb5-user libpam-krb5 && \
     apt-get -yqq clean && \
-    mv /etc/krb5.conf /etc/krb5-backup.conf && \
-    mkdir /home/jovyan
+    mv /etc/krb5.conf /etc/krb5-backup.conf
 
 COPY krb5.conf /etc/krb5.conf
 WORKDIR /home/jovyan
