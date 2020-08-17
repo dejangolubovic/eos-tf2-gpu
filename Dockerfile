@@ -12,8 +12,7 @@ RUN apt-get -qq update && \
 COPY krb5.conf /etc/krb5.conf
 WORKDIR /home/jovyan
 
-COPY requirements.txt /tmp/
-RUN pip install --requirement /tmp/requirements.txt
+USER jovyan
 
 EXPOSE 8888
 
